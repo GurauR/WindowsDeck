@@ -16,7 +16,7 @@ import java.util.concurrent.Future;
 
 public class CommandSender {
 
-    private static final String host = "192.168.1.236";
+    private static String host = "0.0.0.0";
     private static final int port = 8080; // Update with your chosen port number
 
     public static String sendCommand(String command) {
@@ -63,5 +63,9 @@ public class CommandSender {
         }
 
         return null;
+    }
+
+    public static void setHost(String host) {
+        CommandSender.host = host;
     }
 }

@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <ScrollView
-        android:layout_width="409dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
                 android:layout_marginVertical="5dp"/>
 
             <com.google.android.material.slider.Slider
-                android:id="@+id/slider"
+                android:id="@+id/sliderAudio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:value="1"
@@ -136,98 +136,41 @@
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="5dp">
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/buttonShutdown"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_marginEnd="5dp"
-                        android:backgroundTint="@color/material_dynamic_primary90"
-                        app:cardCornerRadius="30dp"
-                        app:strokeWidth="0dp">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:id="@+id/iconShutdown"
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:src="@drawable/rounded_volume_up_24"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:tint="@android:color/primary_text_light"/>
-
-                            <TextView
-                                android:id="@+id/textShutdown"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:text="Search"
-                                android:textColor="@android:color/primary_text_light"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:fontFamily="@android:"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/iconShutdown"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/button"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:layout_marginStart="5dp"
-                        android:backgroundTint="@color/material_dynamic_primary90"
-                        app:cardCornerRadius="30dp"
-                        app:strokeWidth="0dp">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="16dp">
-
-                            <ImageView
-                                android:id="@+id/icon"
-                                android:layout_width="24dp"
-                                android:layout_height="24dp"
-                                android:src="@drawable/rounded_volume_up_24"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:tint="@android:color/primary_text_light"/>
-
-                            <TextView
-                                android:id="@+id/text"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:text="Search"
-                                android:textColor="@android:color/primary_text_light"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:fontFamily="@android:"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/icon"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    </com.google.android.material.card.MaterialCardView>
-                </TableRow>
             </TableLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:padding="16dp"
+                tools:context=".MainActivity">
+
+                <ImageButton
+                    android:id="@+id/btnPrevious"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/rounded_skip_previous_24"
+                    android:background="@android:color/transparent"
+                    app:tint="@color/material_dynamic_primary90" />
+
+                <ImageButton
+                    android:id="@+id/btnPlayPause"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/round_play_arrow_24"
+                    android:background="@drawable/rounded_background"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"/>
+
+                <ImageButton
+                    android:id="@+id/btnNext"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/rounded_skip_next_24"
+                    android:background="@android:color/transparent"
+                    app:tint="@color/material_dynamic_primary90" />
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
