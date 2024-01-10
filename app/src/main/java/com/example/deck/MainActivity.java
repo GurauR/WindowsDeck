@@ -18,16 +18,18 @@ import com.google.android.material.slider.Slider;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    MaterialCardView buttonMute;
-    MaterialCardView buttonAudioDevice;
-    Slider slider;
-    Slider sliderBrightness;
+    LinearLayout buttonMute;
+    LinearLayout buttonAudioDevice;
+    SeekBar slider;
+    SeekBar sliderBrightness;
 
 
     @Override
@@ -51,33 +53,40 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         slider = findViewById(R.id.slider);
-        slider.setCustomThumbDrawable(Objects.requireNonNull(AppCompatResources.getDrawable(this, R.drawable.baseline_music_note_24)));
-        slider.setLabelBehavior(LabelFormatter.LABEL_GONE);
-        slider.addOnSliderTouchListener(new Slider.OnSliderTouchListener() {
+        slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onStartTrackingTouch(@NonNull Slider slider) {
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 
             }
 
             @Override
-            public void onStopTrackingTouch(@NonNull Slider slider) {
-                sendCommand("nircmd setsysvolume " + (int)(slider.getValue() * 65535));
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                sendCommand("nircmd setsysvolume " + (int)(slider.getProgress() * 65535));
             }
         });
 
         sliderBrightness = findViewById(R.id.sliderBrightness);
-        sliderBrightness.setCustomThumbDrawable(Objects.requireNonNull(AppCompatResources.getDrawable(this, R.drawable.rounded_brightness_high_24)));
-        sliderBrightness.setLabelBehavior(LabelFormatter.LABEL_GONE);
-        sliderBrightness.addOnSliderTouchListener(new Slider.OnSliderTouchListener() {
+        sliderBrightness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onStartTrackingTouch(@NonNull Slider slider) {
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 
             }
 
             @Override
-            public void onStopTrackingTouch(@NonNull Slider slider) {
-                sendCommand("ControlMyMonitor.exe /SetValue Primary 10 " + (int)(slider.getValue() * 100));
-                sendCommand("ControlMyMonitor.exe /SetValue Secondary 10 " + (int)(slider.getValue() * 100));
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                sendCommand("ControlMyMonitor.exe /SetValue Primary 10 " + (int)(slider.getProgress() * 100));
+                sendCommand("ControlMyMonitor.exe /SetValue Secondary 10 " + (int)(slider.getProgress() * 100));
+
             }
         });
     }
@@ -89,11 +98,9 @@ public class MainActivity extends AppCompatActivity {
         if (Objects.equals(result, "1")) {
             text.setText("Unmute");
             image.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.rounded_volume_off_24));
-            buttonMute.getBackground().setTint(ContextCompat.getColor(this, com.google.android.material.R.color.material_dynamic_neutral90));
         } else if (Objects.equals(result, "0")) {
             text.setText("Mute");
             image.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.rounded_volume_up_24));
-            buttonMute.getBackground().setTint(ContextCompat.getColor(this, com.google.android.material.R.color.material_dynamic_primary90));
         } else text.setText("fuck");
     }
 
@@ -107,11 +114,9 @@ public class MainActivity extends AppCompatActivity {
         if (Objects.equals(muted, "1")) {
             text.setText("Unmute");
             imageMute.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.rounded_volume_off_24));
-            buttonMute.getBackground().setTint(ContextCompat.getColor(this, com.google.android.material.R.color.material_dynamic_neutral90));
         } else {
             text.setText("Mute");
             imageMute.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.rounded_volume_up_24));
-            buttonMute.getBackground().setTint(ContextCompat.getColor(this, com.google.android.material.R.color.material_dynamic_primary90));
         }
         text.setText(result);
     }
