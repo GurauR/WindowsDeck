@@ -23,18 +23,20 @@
                 android:id="@+id/sliderBrightness"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:trackColorActive="@color/colorPrimary"
+                app:trackColorInactive="@color/colorPrimaryBack"
                 android:value="1"
                 app:trackHeight="50dp"
-                app:trackColorActive="@color/material_dynamic_primary90"
                 android:layout_marginVertical="5dp"/>
 
             <com.google.android.material.slider.Slider
                 android:id="@+id/sliderAudio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:trackColorActive="@color/colorPrimary"
+                app:trackColorInactive="@color/colorPrimaryBack"
                 android:value="1"
                 app:trackHeight="50dp"
-                app:trackColorActive="@color/material_dynamic_primary90"
                 android:layout_marginVertical="5dp"/>
 
             <TableLayout
@@ -54,7 +56,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
                         android:layout_marginEnd="5dp"
-                        android:backgroundTint="@color/material_dynamic_primary90"
+                        android:backgroundTint="@color/colorPrimary"
                         app:cardCornerRadius="30dp"
                         app:strokeWidth="0dp">
 
@@ -68,10 +70,10 @@
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:src="@drawable/rounded_headphones_24"
+                                app:tint="@color/colorForeground"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:tint="@android:color/primary_text_light"/>
+                                app:layout_constraintTop_toTopOf="parent"/>
 
                             <TextView
                                 android:id="@+id/textAudioDevice"
@@ -79,10 +81,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
                                 android:text="Search"
-                                android:textColor="@android:color/primary_text_light"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
-                                android:fontFamily="@android:"
+                                android:textColor="@color/colorForeground"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/iconAudioDevice"
@@ -96,8 +97,8 @@
                         android:id="@+id/buttonMute"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:layout_marginStart="5dp"
-                        android:backgroundTint="@color/material_dynamic_primary90"
+                        android:layout_marginEnd="5dp"
+                        android:backgroundTint="@color/colorPrimary"
                         app:cardCornerRadius="30dp"
                         app:strokeWidth="0dp">
 
@@ -110,11 +111,11 @@
                                 android:id="@+id/iconMute"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@drawable/rounded_volume_up_24"
+                                android:src="@drawable/rounded_headphones_24"
+                                app:tint="@color/colorForeground"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:tint="@android:color/primary_text_light"/>
+                                app:layout_constraintTop_toTopOf="parent"/>
 
                             <TextView
                                 android:id="@+id/textMute"
@@ -122,10 +123,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
                                 android:text="Search"
-                                android:textColor="@android:color/primary_text_light"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
-                                android:fontFamily="@android:"
+                                android:textColor="@color/colorForeground"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/iconMute"
@@ -151,7 +151,7 @@
                     android:layout_height="80dp"
                     android:src="@drawable/rounded_skip_previous_24"
                     android:background="@android:color/transparent"
-                    app:tint="@color/material_dynamic_primary90" />
+                    app:tint="@color/colorPrimary" />
 
                 <ImageButton
                     android:id="@+id/btnPlayPause"
@@ -168,7 +168,7 @@
                     android:layout_height="80dp"
                     android:src="@drawable/rounded_skip_next_24"
                     android:background="@android:color/transparent"
-                    app:tint="@color/material_dynamic_primary90" />
+                    app:tint="@color/colorPrimary" />
 
             </LinearLayout>
         </LinearLayout>

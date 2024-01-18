@@ -5,10 +5,29 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/editTextIpAddress"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter IPv4 Address" />
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/editTextIpAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:digits="0123456789."
+            android:hint="Enter IPv4 Address (x.x.x.x)"
+            android:autofillHints="0.0.0.0" />
+        <ImageView
+            android:id="@+id/iconAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_add_circle_24"
+            android:contentDescription="Add"/>
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/ipList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
